@@ -1,49 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Negocio.Modelo;
+﻿using Negocio.Modelo;
 using Negocio.Objetos;
 using Presentacion.Helpers;
- 
+using System;
+using System.Windows.Forms;
+
 
 namespace Presentacion.Formularios
 {
-    public partial class EditarProducto : Form
+    public partial class EliminarProducto : Form
     {
         private readonly Modo modo;
         private FormInicio formInicio;
 
-        public EditarProducto()
+        public DataProducto Prod { get; }
+
+        public EliminarProducto()
         {
-            InitializeComponent();               
+            InitializeComponent();
         }
         /// <summary>
         /// se usa para agregar
         /// </summary>
         /// <param name="modo"></param>
-        /*public EditarProducto(Modo modo, FormInicio formInicio)
+        public EliminarProducto(Modo modo, FormInicio formInicio)
         {
             InitializeComponent();
             this.modo = modo;
             this.formInicio = formInicio;
-            this.Text = "Agregar Nuevo Producto";
-            groupProd.Text = "Agregar Nuevo Producto";
+            this.Text = "Eliminar Nuevo Producto";
+            groupProd.Text = "Eliminar Nuevo Producto";
             // ocultar el boton de editar
-            btnEditar.Enabled = false;
-            btnEditar.Visible = false;
-        }*/
+            btnEliminar.Enabled = false;
+            btnEliminar.Visible = false;
+        }
         /// <summary>
         /// se usa para editar
         /// </summary>
         /// <param name="prod"></param>
         /// <param name="modo"></param>
-        public EditarProducto(DataProducto prod, Modo modo)
+        /*public EliminarProducto(DataProducto prod, Modo modo)
         {
 
             InitializeComponent();
@@ -54,11 +49,17 @@ namespace Presentacion.Formularios
             // ocultar el boton de agregar
             btnAgregar.Enabled = false;
             txtid.Enabled = false;
-        }
+        }*/
 
-        public EditarProducto(DataProducto prod, Modo modo, FormInicio formInicio) : this(prod, modo)
+        public EliminarProducto(DataProducto prod, Modo modo, FormInicio formInicio) : this(prod, modo)
         {
             this.formInicio = formInicio;
+        }
+
+        public EliminarProducto(DataProducto prod, Modo modo)
+        {
+            Prod = prod;
+            this.modo = modo;
         }
 
         public void Iniciar()
@@ -76,15 +77,15 @@ namespace Presentacion.Formularios
             txtprecio.Text = prod.Precio.ToString();
             txtdescription.Text = prod.Descripcion;
             dtpfecha.Value = prod.Fecha;
-            
+
         }
 
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
-        
+
 
         /*private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -113,7 +114,7 @@ namespace Presentacion.Formularios
             Iniciar();
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        /*private void btnEditar_Click(object sender, EventArgs e)
         {
             DialogResult resultado = MessageBox.Show("seguro que desea\r\n editar", "salir",
                 MessageBoxButtons.YesNoCancel);
@@ -133,7 +134,7 @@ namespace Presentacion.Formularios
                 Producto producto = new Producto();
                 producto.EditarProducto(prod);
             }
-        }
+        }*/
 
         /*private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -145,13 +146,19 @@ namespace Presentacion.Formularios
                 //llamar a agregar                 
                 long idproducto = long.Parse(txtid.Text);
                 Producto producto = new Producto();
-                producto.EliminarProducto(idproducto);                
+                producto.EliminarProducto(idproducto);
             }
         }*/
 
         private void AgregarProducto_FormClosing(object sender, FormClosingEventArgs e)
         {
             formInicio.ActulizarProductos();
+        }
+        
+
+        private void btnElimnar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

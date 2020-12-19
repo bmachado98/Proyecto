@@ -19,7 +19,7 @@ using Negocio.Objetos;
 
 
 //de pueba
-//package
+//package5
 namespace Presentacion.Formularios
 {
     public partial class FormInicio : Form
@@ -105,21 +105,10 @@ namespace Presentacion.Formularios
         {
             Properties.Settings.Default.estalogueado = false;
             Properties.Settings.Default.Save();
-            if (Application.MessageLoop)
-            {
-                // WinForms app                
-                Application.Exit();
-                
-            }
-            else
-            {
-                
-                // Console app
-                Environment.Exit(1);
-            }
+            Application.Exit();            
         }
 
-        /*private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             //abrir formulario
             DataProducto prod = new DataProducto();
@@ -132,6 +121,6 @@ namespace Presentacion.Formularios
             prod.Fecha = (DateTime) fila.Cells[4].Value;
             Form form = new AgregarProducto(prod);
             form.Show();
-        }*/
+        }
     }
 }

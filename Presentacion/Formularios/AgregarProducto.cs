@@ -17,9 +17,11 @@ namespace Presentacion.Formularios
     public partial class AgregarProducto : Form
     {
         private readonly Modo modo;
+        private DataProducto prod;
+
         //private FormInicio formInicio;
 
-        public AgregarProducto()
+        public AgregarProducto(Modo agregar)
         {
             InitializeComponent();               
         }
@@ -27,7 +29,7 @@ namespace Presentacion.Formularios
         /// se usa para agregar
         /// </summary>
         /// <param name="modo"></param>
-        public AgregarProducto(Modo modo)
+       /* public AgregarProducto(Modo modo)
         {
             InitializeComponent();
             this.modo = modo;
@@ -37,7 +39,7 @@ namespace Presentacion.Formularios
             // ocultar el boton de editar
             btnEditar.Enabled = false;
             btnEditar.Visible = false;
-        }
+        }*/
         /// <summary>
         /// se usa para editar
         /// </summary>
@@ -54,6 +56,11 @@ namespace Presentacion.Formularios
             // ocultar el boton de agregar
             btnAgregar.Enabled = false;
             txtid.Enabled = false;
+        }
+
+        public AgregarProducto(DataProducto prod)
+        {
+            this.prod = prod;
         }
 
         /*public AgregarProducto(DataProducto prod, Modo modo, FormInicio formInicio) : this(prod, modo)
@@ -111,28 +118,6 @@ namespace Presentacion.Formularios
         private void btntest_Click(object sender, EventArgs e)
         {
             Iniciar();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show("seguro que desea\r\n editar", "salir",
-                MessageBoxButtons.YesNoCancel);
-            if (resultado == DialogResult.Yes &&
-                txtcodigo.Text.Trim() != string.Empty &&
-                txtdescription.Text.Trim() != string.Empty &&
-                txtprecio.Text.Trim() != string.Empty)
-            {
-                //llamar a agregar 
-                DateTime fecha = dtpfecha.Value.Date;
-                DataProducto prod = new DataProducto();
-                prod.Id_productos = long.Parse(txtid.Text);
-                prod.Codigo = txtcodigo.Text.ToString();
-                prod.Precio = float.Parse(txtprecio.Text.ToString());
-                prod.Descripcion = txtdescription.Text;
-                prod.Fecha = fecha;
-                Producto producto = new Producto();
-                producto.EditarProducto(prod);
-            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

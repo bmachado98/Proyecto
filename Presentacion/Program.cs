@@ -26,9 +26,37 @@ namespace Presentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Login main = new Login();
-            main.Show();
-            Application.Run(); // quítale el parámetro aquí
+
+
+            
+
+
+
+            bool estaLog = Properties.Settings.Default.estalogueado;
+            if (estaLog == true)
+            {
+                //this.Close();
+                
+
+
+                FormInicio main = new FormInicio();
+                main.Show();
+                Application.Run(); // quítale el parámetro aquí
+
+
+            }
+            else
+            {
+
+
+                Login main = new Login();
+                main.Show();
+                Application.Run(); // quítale el parámetro aquí
+
+            }
+
+
+
 
 
 
