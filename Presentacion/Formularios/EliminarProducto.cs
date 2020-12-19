@@ -8,11 +8,10 @@ using System.Windows.Forms;
 namespace Presentacion.Formularios
 {
     public partial class EliminarProducto : Form
-    {
-        private readonly Modo modo;
-        private FormInicio formInicio;
+    {               
+        private DataProducto dataProducto;
 
-        public DataProducto Prod { get; }
+        //public DataProducto Prod  { get; }
 
         public EliminarProducto()
         {
@@ -22,8 +21,10 @@ namespace Presentacion.Formularios
         /// se usa para agregar
         /// </summary>
         /// <param name="modo"></param>
-        public EliminarProducto(Modo modo, FormInicio formInicio)
+        public EliminarProducto(Modo modo)
         {
+            
+            /*
             InitializeComponent();
             this.modo = modo;
             this.formInicio = formInicio;
@@ -31,7 +32,7 @@ namespace Presentacion.Formularios
             groupProd.Text = "Eliminar Nuevo Producto";
             // ocultar el boton de editar
             btnEliminar.Enabled = false;
-            btnEliminar.Visible = false;
+            btnEliminar.Visible = false;*/
         }
         /// <summary>
         /// se usa para editar
@@ -51,32 +52,35 @@ namespace Presentacion.Formularios
             txtid.Enabled = false;
         }*/
 
-        public EliminarProducto(DataProducto prod, Modo modo, FormInicio formInicio) : this(prod, modo)
+        public EliminarProducto(DataProducto dataProducto, Modo modo) : this(modo)
         {
-            this.formInicio = formInicio;
+            this.dataProducto= dataProducto;
+            Iniciar();
         }
 
+        /*
         public EliminarProducto(DataProducto prod, Modo modo)
         {
             Prod = prod;
             this.modo = modo;
-        }
+        }*/
 
-        public void Iniciar()
+        /*public void Iniciar()
         {
-            txtid.Text = "";
+            txtid.Enabled = false;
+            txtid.Text = dataProducto.Id_productos.ToString(); 
             txtcodigo.Text = "";
             txtprecio.Text = "";
             txtdescription.Text = "";
             dtpfecha.Value = new DateTime(2020, 7, 29);
-        }
-        public void Iniciar(DataProducto prod)
+        }*/
+        public void Iniciar()
         {
-            txtid.Text = prod.Id_productos.ToString();
-            txtcodigo.Text = prod.Codigo.ToString();
-            txtprecio.Text = prod.Precio.ToString();
-            txtdescription.Text = prod.Descripcion;
-            dtpfecha.Value = prod.Fecha;
+            txtid.Text = dataProducto.Id_productos.ToString();
+            txtcodigo.Text = dataProducto.Codigo.ToString();
+            txtprecio.Text = dataProducto.Precio.ToString();
+            txtdescription.Text = dataProducto.Descripcion;
+            dtpfecha.Value = dataProducto.Fecha;
 
         }
 
@@ -136,7 +140,7 @@ namespace Presentacion.Formularios
             }
         }*/
 
-        /*private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
             //eliminar el articulo de Id pasado
             DialogResult resultado = MessageBox.Show("seguro que desea\r\n eliminar", "salir",
@@ -145,20 +149,16 @@ namespace Presentacion.Formularios
             {
                 //llamar a agregar                 
                 long idproducto = long.Parse(txtid.Text);
-                Producto producto = new Producto();
-                producto.EliminarProducto(idproducto);
+                Producto producto = new Producto(idproducto);
+                producto.EliminarProducto();
             }
-        }*/
+        }
 
         private void AgregarProducto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formInicio.ActulizarProductos();
+            //formInicio.ActulizarProductos();
         }
-        
 
-        private void btnElimnar_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

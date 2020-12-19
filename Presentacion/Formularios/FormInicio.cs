@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using Presentacion.Helpers;
 using Negocio.Servicios;
 using Negocio.Objetos;
+using Negocio.Modelo;
 
 
 
@@ -24,9 +25,12 @@ namespace Presentacion.Formularios
 {
     public partial class FormInicio : Form
     {
+        
         public FormInicio()
         {
             InitializeComponent();
+            string usuarioNombre = Properties.Settings.Default.UserName;
+            this.Text = usuarioNombre;
         }
         public void ActulizarProductos()
         {
@@ -61,6 +65,13 @@ namespace Presentacion.Formularios
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+
+            
+
+
+
+
+
             //abrir formulario  
             int indice = -1;
             try
@@ -84,7 +95,7 @@ namespace Presentacion.Formularios
                 prod.Descripcion = (string)fila.Cells[2].Value;
                 prod.Precio = (float)fila.Cells[3].Value;
                 prod.Fecha = (DateTime)fila.Cells[4].Value;                
-                Form form = new AgregarProducto(prod, Modo.Actualizar);
+                Form form = new EditarProducto(prod, Modo.Actualizar);
                 form.Show();            
             }
             
@@ -103,9 +114,18 @@ namespace Presentacion.Formularios
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.estalogueado = false;
-            Properties.Settings.Default.Save();
-            Application.Exit();            
+            DialogResult resultado = MessageBox.Show("seguro que desea\r\n salir", "salir",
+                MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                //llamar a agregar    
+                Properties.Settings.Default.estalogueado = false;
+                Properties.Settings.Default.Save();
+                Application.Exit();
+
+            }
+
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -121,6 +141,46 @@ namespace Presentacion.Formularios
             prod.Fecha = (DateTime) fila.Cells[4].Value;
             Form form = new AgregarProducto(prod);
             form.Show();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //eliminar el articulo de Id pasado
+            //eliminar el articulo de Id pasado
+            int indice = -1;
+            try
+            {
+                indice = dgvProductos.CurrentRow.Index;
+            }
+            catch
+            {
+                MessageBox.Show("seleccione un Producto a Eliminar");
+            }
+
+
+            //hay un indice seleccionado
+
+            if (indice > -1)
+            {
+                DialogResult resultado = MessageBox.Show("seguro que desea\r\n eliminar", "salir",
+                MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    //llamar a agregar        
+                    DataGridViewRow fila = dgvProductos.CurrentRow;
+                    //prod.Id_productos = (long) fila.Cells[0].Value;
+                    long idproducto = (long)fila.Cells[0].Value;
+                    //long idproducto = long.Parse(txtid.Text);
+                    Producto producto = new Producto(idproducto);
+                    producto.EliminarProducto();
+                }
+
+            }
+
+
+                
+
+
         }
     }
 }

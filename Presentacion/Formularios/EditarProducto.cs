@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,10 @@ namespace Presentacion.Formularios
     public partial class EditarProducto : Form
     {
         private readonly Modo modo;
-        private FormInicio formInicio;
+        //private FormInicio formInicio;
+        private DataProducto dataProducto;
 
-        public EditarProducto()
-        {
-            InitializeComponent();               
-        }
+        
         /// <summary>
         /// se usa para agregar
         /// </summary>
@@ -47,19 +46,21 @@ namespace Presentacion.Formularios
         {
 
             InitializeComponent();
+            txtid.Enabled = false;
             this.modo = modo;
             this.Text = "Editar Producto";
             groupProd.Text = "Editar Producto";
+            this.dataProducto = prod;
             Iniciar(prod);
             // ocultar el boton de agregar
-            btnAgregar.Enabled = false;
-            txtid.Enabled = false;
+            /*btnEditar.Enabled = true;
+            txtid.Enabled = true;*/
         }
 
-        public EditarProducto(DataProducto prod, Modo modo, FormInicio formInicio) : this(prod, modo)
+        /*public EditarProducto(DataProducto prod, Modo modo) : this(prod, modo)
         {
-            this.formInicio = formInicio;
-        }
+            
+        }*/
 
         public void Iniciar()
         {
@@ -108,31 +109,80 @@ namespace Presentacion.Formularios
             }
         }*/
 
-        private void btntest_Click(object sender, EventArgs e)
-        {
-            Iniciar();
-        }
-
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("seguro que desea\r\n editar", "salir",
-                MessageBoxButtons.YesNoCancel);
-            if (resultado == DialogResult.Yes &&
-                txtcodigo.Text.Trim() != string.Empty &&
-                txtdescription.Text.Trim() != string.Empty &&
-                txtprecio.Text.Trim() != string.Empty)
+            //deshabilita la edicion del id
+            
+            
+            string errores = "";
+            bool errorBool = false;
+            string codigoStr =txtcodigo.Text.Trim();
+            string precioStr = txtprecio.Text.Trim();
+            string descripcionStr = txtdescription.Text.Trim();
+
+            float precioFloat = 0.0f; 
+            if (string.IsNullOrEmpty(precioStr))
             {
-                //llamar a agregar 
-                DateTime fecha = dtpfecha.Value.Date;
-                DataProducto prod = new DataProducto();
-                prod.Id_productos = long.Parse(txtid.Text);
-                prod.Codigo = txtcodigo.Text.ToString();
-                prod.Precio = float.Parse(txtprecio.Text.ToString());
-                prod.Descripcion = txtdescription.Text;
-                prod.Fecha = fecha;
-                Producto producto = new Producto();
-                producto.EditarProducto(prod);
+                errores += "el precio no puede ser vacio\n";
+                errorBool = true;
             }
+            if (string.IsNullOrEmpty(descripcionStr))
+            {
+                errores += "la descripcion no puede ser vacía\n";
+                errorBool = true;
+            }
+            try
+            {
+                
+                precioFloat = float.Parse(precioStr, CultureInfo.InvariantCulture.NumberFormat);
+                
+            }
+            catch (Exception ex)
+            {
+                //casting, es conversión.
+                errores += "el precio no es válido\n";
+                errorBool = true;
+            }
+
+
+
+            if (!errorBool)
+            {
+                DialogResult resultado = MessageBox.Show("seguro que desea\r\n editar", "salir",
+                MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+
+                    //llamar a agregar 
+                    DateTime fecha = dtpfecha.Value.Date;
+                    DataProducto prod = new DataProducto();
+                    prod.Id_productos = long.Parse(txtid.Text);
+                    prod.Codigo = codigoStr;
+                    prod.Precio = precioFloat;
+                    prod.Descripcion = descripcionStr;
+                    prod.Fecha = fecha;
+                    Producto producto = new Producto();
+                    producto.EditarProducto(prod);
+
+                }
+            }
+            else
+            {
+                string title = "Close Window";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(errores, title, buttons, MessageBoxIcon.Warning);
+            }
+
+                
+
+
+
+
+
+
+            
+
+
         }
 
         /*private void btnEliminar_Click(object sender, EventArgs e)
@@ -151,7 +201,17 @@ namespace Presentacion.Formularios
 
         private void AgregarProducto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formInicio.ActulizarProductos();
+            //formInicio.ActulizarProductos();
+        }
+
+        private void groupProd_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Iniciar(this.dataProducto);
         }
     }
 }

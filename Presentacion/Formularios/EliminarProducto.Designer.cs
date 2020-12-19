@@ -42,7 +42,6 @@
             this.lblid = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -54,8 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnElimnar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupProd.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -201,16 +199,6 @@
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 0;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(214, 315);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(56, 19);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox1);
@@ -227,10 +215,10 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupBox1.Size = new System.Drawing.Size(496, 244);
+            this.groupBox1.Size = new System.Drawing.Size(294, 244);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Agregar Producto";
+            this.groupBox1.Text = "Eliminar Producto";
             // 
             // textBox1
             // 
@@ -282,7 +270,7 @@
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.TabIndex = 10;
             this.dateTimePicker1.Value = new System.DateTime(2020, 12, 18, 0, 0, 0, 0);
             // 
             // label6
@@ -325,30 +313,23 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Id";
             // 
-            // button2
+            // btnEliminar
             // 
-            this.button2.Location = new System.Drawing.Point(11, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            // 
-            // btnElimnar
-            // 
-            this.btnElimnar.Location = new System.Drawing.Point(37, 302);
-            this.btnElimnar.Name = "btnElimnar";
-            this.btnElimnar.Size = new System.Drawing.Size(75, 23);
-            this.btnElimnar.TabIndex = 10;
-            this.btnElimnar.Text = "Eliminar";
-            this.btnElimnar.UseVisualStyleBackColor = true;
-            this.btnElimnar.Click += new System.EventHandler(this.btnElimnar_Click);
+            this.btnEliminar.Location = new System.Drawing.Point(12, 288);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // EliminarProducto
             // 
-            this.ClientSize = new System.Drawing.Size(518, 337);
-            this.Controls.Add(this.btnElimnar);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(317, 319);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.groupBox1);
             this.Name = "EliminarProducto";
+            this.Text = "Eliminar Producto";
             this.groupProd.ResumeLayout(false);
             this.groupProd.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -373,7 +354,7 @@
         private System.Windows.Forms.TextBox txtprecio;
         private System.Windows.Forms.Button btntest;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
+        
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -385,7 +366,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnElimnar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

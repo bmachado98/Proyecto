@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupProd = new System.Windows.Forms.GroupBox();
-            this.btntest = new System.Windows.Forms.Button();
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.txtdescription = new System.Windows.Forms.TextBox();
             this.txtcodigo = new System.Windows.Forms.TextBox();
@@ -40,15 +39,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupProd.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupProd
             // 
-            this.groupProd.Controls.Add(this.btntest);
             this.groupProd.Controls.Add(this.txtprecio);
             this.groupProd.Controls.Add(this.txtdescription);
             this.groupProd.Controls.Add(this.txtcodigo);
@@ -59,25 +56,15 @@
             this.groupProd.Controls.Add(this.label2);
             this.groupProd.Controls.Add(this.label1);
             this.groupProd.Controls.Add(this.lblid);
-            this.groupProd.Location = new System.Drawing.Point(0, 29);
+            this.groupProd.Location = new System.Drawing.Point(11, 29);
             this.groupProd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupProd.Name = "groupProd";
             this.groupProd.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupProd.Size = new System.Drawing.Size(721, 244);
+            this.groupProd.Size = new System.Drawing.Size(299, 244);
             this.groupProd.TabIndex = 0;
             this.groupProd.TabStop = false;
-            this.groupProd.Text = "Agregar Producto";
-            // 
-            // btntest
-            // 
-            this.btntest.Location = new System.Drawing.Point(313, 27);
-            this.btntest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btntest.Name = "btntest";
-            this.btntest.Size = new System.Drawing.Size(150, 19);
-            this.btntest.TabIndex = 2;
-            this.btntest.Text = "Test";
-            this.btntest.UseVisualStyleBackColor = true;
-            this.btntest.Click += new System.EventHandler(this.btntest_Click);
+            this.groupProd.Text = "Editar Producto";
+            this.groupProd.Enter += new System.EventHandler(this.groupProd_Enter);
             // 
             // txtprecio
             // 
@@ -173,16 +160,9 @@
             this.lblid.TabIndex = 0;
             this.lblid.Text = "Id";
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(0, 0);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 3;
-            // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(133, 315);
+            this.btnEditar.Location = new System.Drawing.Point(11, 279);
             this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(56, 19);
@@ -191,25 +171,28 @@
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnEliminar
+            // btnCancelar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(0, 0);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 0;
+            this.btnCancelar.Location = new System.Drawing.Point(88, 279);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(56, 19);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // EditarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 368);
-            this.Controls.Add(this.btnEliminar);
+            this.ClientSize = new System.Drawing.Size(322, 325);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupProd);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "EditarProducto";
-            this.Text = "Agregar Producto";
+            this.Text = "Editar Producto";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgregarProducto_FormClosing);
             this.groupProd.ResumeLayout(false);
             this.groupProd.PerformLayout();
@@ -229,10 +212,8 @@
         private System.Windows.Forms.TextBox txtcodigo;
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtprecio;
-        private System.Windows.Forms.Button btntest;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

@@ -21,15 +21,12 @@ namespace Presentacion.Formularios
 
         //private FormInicio formInicio;
 
-        public AgregarProducto(Modo agregar)
-        {
-            InitializeComponent();               
-        }
+        
         /// <summary>
         /// se usa para agregar
         /// </summary>
         /// <param name="modo"></param>
-       /* public AgregarProducto(Modo modo)
+        public AgregarProducto(Modo modo)
         {
             InitializeComponent();
             this.modo = modo;
@@ -37,9 +34,9 @@ namespace Presentacion.Formularios
             this.Text = "Agregar Nuevo Producto";
             groupProd.Text = "Agregar Nuevo Producto";
             // ocultar el boton de editar
-            btnEditar.Enabled = false;
-            btnEditar.Visible = false;
-        }*/
+            //btnAgregar.Enabled = true;
+            //btnAgregar.Visible = true;
+        }
         /// <summary>
         /// se usa para editar
         /// </summary>
@@ -50,8 +47,8 @@ namespace Presentacion.Formularios
 
             InitializeComponent();
             this.modo = modo;
-            this.Text = "Editar Producto";
-            groupProd.Text = "Editar Producto";
+            this.Text = "Agregar Producto";
+            groupProd.Text = "Agregar Producto";
             Iniciar(prod);
             // ocultar el boton de agregar
             btnAgregar.Enabled = false;
@@ -95,6 +92,7 @@ namespace Presentacion.Formularios
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            
             DialogResult resultado = MessageBox.Show("seguro que desea\r\n agregar", "salir",
                 MessageBoxButtons.YesNoCancel);
             if (resultado == DialogResult.Yes &&
@@ -107,6 +105,7 @@ namespace Presentacion.Formularios
                 DataProducto prod = new DataProducto();
                 //prod.Id_productos= long.Parse(txtid.Text);
                 prod.Codigo = txtcodigo.Text.ToString();
+
                 prod.Precio = float.Parse(txtprecio.Text.ToString());                 
                 prod.Descripcion = txtdescription.Text;
                 prod.Fecha = fecha;
@@ -115,12 +114,8 @@ namespace Presentacion.Formularios
             }
         }
 
-        private void btntest_Click(object sender, EventArgs e)
-        {
-            Iniciar();
-        }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        /*private void btnEliminar_Click(object sender, EventArgs e)
         {
             //eliminar el articulo de Id pasado
             DialogResult resultado = MessageBox.Show("seguro que desea\r\n eliminar", "salir",

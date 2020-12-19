@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupProd = new System.Windows.Forms.GroupBox();
-            this.btntest = new System.Windows.Forms.Button();
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.txtdescription = new System.Windows.Forms.TextBox();
             this.txtcodigo = new System.Windows.Forms.TextBox();
@@ -41,13 +40,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblid = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupProd.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupProd
             // 
-            this.groupProd.Controls.Add(this.btntest);
             this.groupProd.Controls.Add(this.txtprecio);
             this.groupProd.Controls.Add(this.txtdescription);
             this.groupProd.Controls.Add(this.txtcodigo);
@@ -58,25 +55,14 @@
             this.groupProd.Controls.Add(this.label2);
             this.groupProd.Controls.Add(this.label1);
             this.groupProd.Controls.Add(this.lblid);
-            this.groupProd.Location = new System.Drawing.Point(54, 55);
+            this.groupProd.Location = new System.Drawing.Point(11, 12);
             this.groupProd.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupProd.Name = "groupProd";
             this.groupProd.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.groupProd.Size = new System.Drawing.Size(721, 244);
+            this.groupProd.Size = new System.Drawing.Size(324, 244);
             this.groupProd.TabIndex = 0;
             this.groupProd.TabStop = false;
             this.groupProd.Text = "Agregar Producto";
-            // 
-            // btntest
-            // 
-            this.btntest.Location = new System.Drawing.Point(313, 27);
-            this.btntest.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btntest.Name = "btntest";
-            this.btntest.Size = new System.Drawing.Size(150, 19);
-            this.btntest.TabIndex = 2;
-            this.btntest.Text = "Test";
-            this.btntest.UseVisualStyleBackColor = true;
-            this.btntest.Click += new System.EventHandler(this.btntest_Click);
             // 
             // txtprecio
             // 
@@ -84,7 +70,7 @@
             this.txtprecio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtprecio.Name = "txtprecio";
             this.txtprecio.Size = new System.Drawing.Size(151, 20);
-            this.txtprecio.TabIndex = 9;
+            this.txtprecio.TabIndex = 4;
             // 
             // txtdescription
             // 
@@ -93,7 +79,7 @@
             this.txtdescription.Multiline = true;
             this.txtdescription.Name = "txtdescription";
             this.txtdescription.Size = new System.Drawing.Size(151, 42);
-            this.txtdescription.TabIndex = 8;
+            this.txtdescription.TabIndex = 3;
             // 
             // txtcodigo
             // 
@@ -101,7 +87,7 @@
             this.txtcodigo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtcodigo.Name = "txtcodigo";
             this.txtcodigo.Size = new System.Drawing.Size(151, 20);
-            this.txtcodigo.TabIndex = 7;
+            this.txtcodigo.TabIndex = 2;
             // 
             // txtid
             // 
@@ -109,7 +95,7 @@
             this.txtid.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(151, 20);
-            this.txtid.TabIndex = 6;
+            this.txtid.TabIndex = 1;
             // 
             // label4
             // 
@@ -118,7 +104,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 5;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Precio";
             // 
             // dtpfecha
@@ -128,7 +114,7 @@
             this.dtpfecha.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtpfecha.Name = "dtpfecha";
             this.dtpfecha.Size = new System.Drawing.Size(151, 20);
-            this.dtpfecha.TabIndex = 4;
+            this.dtpfecha.TabIndex = 5;
             this.dtpfecha.Value = new System.DateTime(2020, 12, 18, 0, 0, 0, 0);
             this.dtpfecha.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -139,7 +125,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Fecha";
             // 
             // label2
@@ -149,7 +135,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Descripcion";
             // 
             // label1
@@ -159,7 +145,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
             // 
             // lblid
@@ -174,7 +160,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(54, 316);
+            this.btnAgregar.Location = new System.Drawing.Point(11, 262);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(56, 19);
@@ -183,23 +169,11 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(214, 315);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(56, 19);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // AgregarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 374);
-            this.Controls.Add(this.btnEliminar);
+            this.ClientSize = new System.Drawing.Size(349, 295);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupProd);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -225,7 +199,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtprecio;
-        private System.Windows.Forms.Button btntest;
-        private System.Windows.Forms.Button btnEliminar;
     }
 }

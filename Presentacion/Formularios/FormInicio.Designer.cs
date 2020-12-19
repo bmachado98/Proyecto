@@ -41,6 +41,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.txtConsulta = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataProductoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // btnClick
             // 
             this.btnClick.Location = new System.Drawing.Point(235, 83);
-            this.btnClick.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClick.Margin = new System.Windows.Forms.Padding(2);
             this.btnClick.Name = "btnClick";
             this.btnClick.Size = new System.Drawing.Size(56, 19);
             this.btnClick.TabIndex = 0;
@@ -70,7 +71,7 @@
             this.fechaDataGridViewTextBoxColumn});
             this.dgvProductos.DataSource = this.dataProductoBindingSource;
             this.dgvProductos.Location = new System.Drawing.Point(33, 122);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.RowHeadersWidth = 51;
@@ -131,7 +132,7 @@
             // btnEditar
             // 
             this.btnEditar.Location = new System.Drawing.Point(350, 83);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(118, 19);
             this.btnEditar.TabIndex = 2;
@@ -142,7 +143,7 @@
             // btnNuevo
             // 
             this.btnNuevo.Location = new System.Drawing.Point(498, 83);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(56, 19);
             this.btnNuevo.TabIndex = 3;
@@ -153,14 +154,14 @@
             // txtConsulta
             // 
             this.txtConsulta.Location = new System.Drawing.Point(33, 83);
-            this.txtConsulta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConsulta.Margin = new System.Windows.Forms.Padding(2);
             this.txtConsulta.Name = "txtConsulta";
             this.txtConsulta.Size = new System.Drawing.Size(163, 20);
             this.txtConsulta.TabIndex = 4;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(592, 79);
+            this.btnSalir.Location = new System.Drawing.Point(752, 79);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 5;
@@ -168,18 +169,30 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(580, 84);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(118, 19);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // FormInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 455);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.txtConsulta);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnClick);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormInicio";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.FormInicio_Load);
@@ -204,5 +217,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtConsulta;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

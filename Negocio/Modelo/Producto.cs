@@ -11,6 +11,18 @@ namespace Negocio.Modelo
 
     public class Producto
     {
+        private long idProducto;
+
+        public Producto(long idProducto)
+        {
+            this.idProducto = idProducto;
+        }
+
+        public Producto()
+        {
+            
+        }
+
         public string elimina()
         {
             return "dfdfdf";
@@ -42,10 +54,11 @@ namespace Negocio.Modelo
             repProdu.EditarProducto(entidad);
         }
 
-        public void EliminarProducto(long idproducto)
+
+        public void EliminarProducto()
         {
             ProductosRepo repProdu = new ProductosRepo();
-            repProdu.EliminarProducto(idproducto);
+            repProdu.EliminarProducto(this.idProducto);
         }
     }
 }
